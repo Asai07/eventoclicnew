@@ -1,14 +1,19 @@
 import Image from 'next/image';
-import { FiArrowRight } from 'react-icons/fi'; // Ejemplo de icono
+import { FiArrowRight } from 'react-icons/fi';
 import FloatingWidget from './FloatingWidget';
 
 export default function Hero() {
     return (
-        <section className="pt-12 pb-24 grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+        // 1. Agregamos "relative" aquí para que los blobs se contengan en el Hero
+        <section className="relative pt-12 pb-24 grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+
+            {/* === BLOBS DE FONDO DEL HERO === */}
+            <div className="absolute -top-[15%] -left-[10%] w-[50%] max-w-[500px] aspect-square bg-[#cf655b]/20 rounded-full blur-[120px] pointer-events-none -z-10" />
+            <div className="absolute top-[20%] -right-[10%] w-[45%] max-w-[450px] aspect-square bg-[#faa671]/20 rounded-full blur-[130px] pointer-events-none -z-10" />
+            <div className="absolute -bottom-[10%] left-[20%] w-[40%] max-w-[400px] aspect-square bg-[#f07343]/15 rounded-full blur-[100px] pointer-events-none -z-10" />
 
             {/* Columna Izquierda: Copy y CTA */}
-            <div className="flex flex-col gap-6 max-w-xl">
-                {/* Aplicamos la fuente a TODO el h1, en italic y asegurando que no tenga bold (font-normal) */}
+            <div className="flex flex-col gap-6 max-w-xl relative z-10">
                 <h1 className="text-5xl lg:text-7xl leading-[1.1] text-zinc-800 font-veryvogue italic font-normal">
                     El sistema que organiza a tus invitados y{' '}
                     <span className="text-[#cf655b]">controla</span> quién entra a tu evento
@@ -31,7 +36,7 @@ export default function Hero() {
             </div>
 
             {/* Columna Derecha: Imagen y Widgets */}
-            <div className="relative w-full h-[600px] rounded-[2rem] flex items-center justify-center">
+            <div className="relative w-full h-[600px] rounded-[2rem] flex items-center justify-center z-10">
                 {/* Máscara de imagen */}
                 <div className="relative w-[85%] h-full rounded-[2rem] overflow-hidden shadow-2xl">
                     <Image
