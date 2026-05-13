@@ -43,9 +43,10 @@ const SLIDES = [
         stats: { total: 120, mesa: 105, sinMesa: 15, adultos: 90, ninos: 40, trad: 90, veg: 0, inf: 40 },
         guest: { name: 'Serrano Alonso', confBy: 'Norma', pax: 3, time: '20:50' },
         topCardsYOffset: "top-[18%]",
-        fgAlignment: "justify-end items-end pb-4 md:pb-6",
-        fgObjectAlignment: "object-right object-bottom -translate-x-2 -translate-y-2.5",
-        fgImageHeight: "h-[70%]",
+        // CORRECCIÓN: Agregamos pb-4 para subirlo un poco del borde inferior y que no se corte
+        fgAlignment: "justify-end items-end pb-4 md:pb-6 pr-2",
+        fgObjectAlignment: "object-right object-bottom",
+        fgImageHeight: "h-[75%]",
         allWidgetsAbove: true,
     }
 ];
@@ -229,22 +230,11 @@ export default function Hero() {
     };
 
     return (
-        // CORRECCIÓN: Regresamos a tus clases originales para el contenedor principal
-        <section className="relative pt-12 pb-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[85vh] overflow-hidden lg:overflow-visible">
+        // CORRECCIÓN: Cambiamos overflow-hidden por overflow-x-clip para que el fondo pueda expandirse hacia arriba
+        <section className="relative pt-12 pb-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[85vh] overflow-x-clip">
 
-            {/* === BLOBS DE FONDO DEL HERO (Basados en tu código original pero animados) === */}
-            <motion.div
-                animate={{ scale: [1, 1.05, 1], x: [0, 15, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-[15%] -left-[10%] w-[50%] max-w-[500px] aspect-square bg-[#cf655b]/20 rounded-full blur-[120px] pointer-events-none -z-10"
-            />
-            <motion.div
-                animate={{ scale: [1, 1.1, 1], y: [0, 20, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-[20%] -right-[10%] w-[45%] max-w-[450px] aspect-square bg-[#faa671]/20 rounded-full blur-[130px] pointer-events-none -z-10"
-            />
-            <motion.div
-                animate={{ scale: [1, 1.08, 1], x: [0, -15, 0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute -bottom-[10%] left-[20%] w-[40%] max-w-[400px] aspect-square bg-[#f07343]/15 rounded-full blur-[100px] pointer-events-none -z-10"
-            />
+            {/* --- CAPA DE BLOBS DECORATIVOS --- */}
+            <BackgroundBlobs />
 
             {/* --- COLUMNA IZQUIERDA (CONTENIDO) --- */}
             <div className="flex flex-col gap-6 max-w-xl z-20 relative pl-4 md:pl-8 lg:pl-0">
