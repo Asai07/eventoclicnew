@@ -4,7 +4,6 @@ import { motion, Variants } from 'framer-motion';
 import { Utensils, TrendingUp, LayoutGrid, UserX, ArrowRight } from 'lucide-react';
 
 export default function DilemmaSection() {
-    // Variantes para animaciones en cascada
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         show: {
@@ -33,9 +32,9 @@ export default function DilemmaSection() {
         },
         {
             icon: LayoutGrid,
-            title: "Mesas y logística que cambian a última hora",
+            title: "Mesas y logística cambian a última hora",
             stat: "48 h",
-            sub: "antes del evento, todo se vuelve un caos",
+            sub: "antes del evento todo es un caos",
         },
         {
             icon: UserX,
@@ -65,12 +64,13 @@ export default function DilemmaSection() {
                 >
                     <div className="flex items-center gap-4 mb-6">
                         <span className="w-12 h-[1px] bg-[#cf655b]/40"></span>
-                        <span className="font-montserrat text-zinc-500 font-medium text-sm tracking-wide">
-                            El gran dilema cuándo organizas un evento importante
+                        <span className="font-montserrat text-zinc-500 font-medium text-sm tracking-wide uppercase">
+                            El gran dilema
                         </span>
+                        <span className="w-12 h-[1px] bg-[#cf655b]/40"></span>
                     </div>
 
-                    <h2 className="font-veryvogue italic font-normal text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-zinc-800 max-w-4xl">
+                    <h2 className="font-veryvogue italic font-normal text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] text-zinc-800 max-w-4xl text-balance">
                         Invitar es fácil. Saber <span className="text-[#cf655b]">quién realmente vendrá... no tanto.</span>
                     </h2>
                 </motion.div>
@@ -82,22 +82,20 @@ export default function DilemmaSection() {
                     viewport={{ once: true }}
                     className="flex flex-col items-center mb-20"
                 >
-                    <p className="font-montserrat text-zinc-600 text-lg md:text-xl max-w-2xl text-center mb-12">
+                    <p className="font-montserrat text-zinc-600 text-lg md:text-xl max-w-2xl text-center mb-12 text-balance">
                         Cuando las confirmaciones llegan tarde — o no llegan — todo tu evento se vuelve incierto.
                     </p>
 
-                    {/* ¡CORRECCIÓN CLAVE AQUÍ! Redefinimos el Grid para pantallas LG */}
-                    {/* Cambiamos 'lg:grid-cols-2' por 'lg:grid-cols-[2fr_3fr]'.
-                        Esto divide el espacio en 5 partes: el video toma 2/5 (40%) y las tarjetas toman 3/5 (60%). */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 w-full items-stretch">
+                    {/* CORRECCIÓN 1: Cambiamos items-stretch por items-center para no deformar las tarjetas */}
+                    <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 w-full items-center">
 
-                        {/* --- CONTENEDOR DEL VIDEO ACTUALIZADO (Columna Estrecha) --- */}
+                        {/* Contenedor del Video */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="relative w-full rounded-[2.5rem] overflow-hidden group shadow-xl shadow-zinc-900/10 cursor-pointer aspect-[9/16]"
+                            className="relative w-full rounded-[2.5rem] overflow-hidden shadow-2xl shadow-zinc-900/10 cursor-pointer aspect-[9/16] bg-zinc-100"
                         >
                             <video
                                 src="/videos/presentacion-eventoclic.mp4"
@@ -106,19 +104,17 @@ export default function DilemmaSection() {
                                 muted
                                 playsInline
                                 controls
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 z-0"
                             />
                         </motion.div>
 
-                        {/* Grid de 4 Tarjetas de Datos (Columna Ancha) */}
-                        {/* Esta columna ahora ocupa el 60% del ancho en LG,
-                            lo que estira las tarjetas hacia abajo para armonizar con el video alto. */}
+                        {/* Grid de 4 Tarjetas de Datos */}
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full"
+                            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
                         >
                             {stats.map((item, index) => {
                                 const Icon = item.icon;
@@ -127,22 +123,24 @@ export default function DilemmaSection() {
                                         key={index}
                                         variants={itemVariants}
                                         whileHover={{ y: -5, scale: 1.02 }}
-                                        className="bg-[#f7ece5] rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:shadow-[#cf655b]/10 h-full cursor-default"
+                                        // CORRECCIÓN 2: Quitamos h-full y pusimos un min-h-[280px] para que se vean como cuadrados perfectos tipo Bento Box
+                                        className="bg-[#f7ece5] rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-[#cf655b]/15 cursor-default min-h-[280px] border border-white/50"
                                     >
                                         <div>
-                                            <div className="w-12 h-12 rounded-full border border-[#cf655b]/30 flex items-center justify-center mb-6">
+                                            <div className="w-12 h-12 rounded-full bg-white/60 border border-[#cf655b]/20 flex items-center justify-center mb-6 shadow-sm">
                                                 <Icon className="text-[#cf655b] w-6 h-6" strokeWidth={1.5} />
                                             </div>
-                                            <h4 className="font-veryvogue italic font-normal text-xl leading-snug text-zinc-800 mb-6 pr-4">
+                                            <h4 className="font-veryvogue italic font-normal text-[22px] leading-snug text-zinc-800 mb-6 pr-2 text-balance">
                                                 {item.title}
                                             </h4>
                                         </div>
 
-                                        <div>
-                                            <span className="block font-veryvogue italic text-4xl text-[#cf655b] mb-1">
+                                        <div className="mt-auto pt-4">
+                                            {/* CORRECCIÓN 3: Tipografía Gigante (text-6xl) para llenar el espacio visualmente */}
+                                            <span className="block font-veryvogue italic text-5xl lg:text-[4rem] leading-none text-[#cf655b] mb-3 tracking-tight drop-shadow-sm">
                                                 {item.stat}
                                             </span>
-                                            <span className="block font-montserrat text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                                            <span className="block font-montserrat text-[11px] font-bold text-zinc-500 uppercase tracking-widest leading-relaxed">
                                                 {item.sub}
                                             </span>
                                         </div>
@@ -165,7 +163,7 @@ export default function DilemmaSection() {
                     <div className="absolute inset-0 bg-gradient-to-r from-white via-[#fcf0ea] to-white opacity-80 pointer-events-none" />
                     <div className="absolute top-0 right-[20%] w-[300px] h-[300px] bg-[#cf655b]/10 rounded-full blur-[80px] pointer-events-none" />
 
-                    <h3 className="relative z-10 font-veryvogue italic font-normal text-4xl md:text-5xl text-zinc-800 leading-tight max-w-xl text-center md:text-left">
+                    <h3 className="relative z-10 font-veryvogue italic font-normal text-4xl md:text-5xl text-zinc-800 leading-tight max-w-xl text-center md:text-left text-balance">
                         ¿Cuántas personas asistirán realmente a tu evento?
                     </h3>
 
