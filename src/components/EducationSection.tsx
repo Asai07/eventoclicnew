@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { ArrowLeft, Ticket, ShieldAlert, ShieldCheck, XCircle, CheckCircle2 } from 'lucide-react';
+// Importamos Image de Next.js
+import Image from 'next/image';
+import { ArrowLeft, Ticket, ShieldAlert, ShieldCheck } from 'lucide-react';
 
 export default function EducationSection() {
     // null = Menú principal | 'codes' = Vista de Códigos | 'control' = Vista de Control
@@ -109,7 +111,7 @@ export default function EducationSection() {
                     )}
 
                     {/* ========================================= */}
-                    {/* VISTA 2: CÓDIGOS DE INVITACIÓN            */}
+                    {/* VISTA 2: CÓDIGOS DE INVITACIÓN (EDITADA)  */}
                     {/* ========================================= */}
                     {activeView === 'codes' && (
                         <motion.div
@@ -138,33 +140,51 @@ export default function EducationSection() {
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-                                {/* Código General */}
-                                <div className="bg-white border border-[#cf655b]/10 rounded-[2.5rem] p-8 md:p-10 shadow-xl shadow-[#cf655b]/5 flex flex-col justify-between">
-                                    <div>
-                                        <h3 className="font-veryvogue text-3xl text-zinc-800 mb-6">
+                                {/* Código General - Gráfico */}
+                                <div className="bg-white border border-[#cf655b]/10 rounded-[2.5rem] shadow-xl shadow-[#cf655b]/5 flex flex-col overflow-hidden group">
+                                    <div className="p-8 md:p-10 pb-0 md:pb-0">
+                                        <h3 className="font-veryvogue text-3xl text-zinc-800 mb-6 transition-colors group-hover:text-[#cf655b]">
                                             Código general
                                         </h3>
-                                        <p className="font-montserrat text-zinc-600 text-sm leading-relaxed mb-10">
+                                        <p className="font-montserrat text-zinc-600 text-sm leading-relaxed mb-8">
                                             Un código para un grupo de personas (familia y/o amigos). Le das el mismo código a varias personas y el sistema les asigna sus pases correspondientes.
                                         </p>
                                     </div>
-                                    <div className="inline-block bg-[#fdf0ea] text-[#cf655b] font-mono text-xs md:text-sm font-semibold px-5 py-3 rounded-xl self-start border border-[#cf655b]/20">
-                                        Ej: AYD-123 &bull; 4 pases
+
+                                    {/* Contenedor de la Imagen - Estilo Gráfico */}
+                                    <div className="mt-auto px-8 md:px-10 pb-8 md:pb-10 w-full flex justify-center items-center">
+                                        <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#cf655b]/10 shadow-inner bg-zinc-50 flex items-center justify-center p-4">
+                                            <Image
+                                                src="/codigos/codigo-general.png"
+                                                alt="Gráfico explicativo del Código General"
+                                                fill
+                                                className="object-contain p-2" // contain para no cortar el gráfico
+                                            />
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* Código Personalizado */}
-                                <div className="bg-white border border-[#6b46c1]/10 rounded-[2.5rem] p-8 md:p-10 shadow-xl shadow-[#6b46c1]/5 flex flex-col justify-between">
-                                    <div>
-                                        <h3 className="font-veryvogue text-3xl text-zinc-800 mb-6">
-                                            Código personalizado por invitado
+                                {/* Código Personalizado - Gráfico */}
+                                <div className="bg-white border border-[#6b46c1]/10 rounded-[2.5rem] shadow-xl shadow-[#6b46c1]/5 flex flex-col overflow-hidden group">
+                                    <div className="p-8 md:p-10 pb-0 md:pb-0">
+                                        <h3 className="font-veryvogue text-3xl text-zinc-800 mb-6 transition-colors group-hover:text-[#6b46c1]">
+                                            Código personalizado
                                         </h3>
-                                        <p className="font-montserrat text-zinc-600 text-sm leading-relaxed mb-10">
+                                        <p className="font-montserrat text-zinc-600 text-sm leading-relaxed mb-8">
                                             Cada invitado tiene su propio código único. El sistema sabe exactamente quién es, cuántos pases tiene, qué mesa le corresponde y qué menú eligió.
                                         </p>
                                     </div>
-                                    <div className="inline-block bg-[#f5f3ff] text-[#6b46c1] font-mono text-xs md:text-sm font-semibold px-5 py-3 rounded-xl self-start border border-[#6b46c1]/20">
-                                        Ej: FAM. GARCÍA - INV-2847 &bull; 4 pases &bull; Mesa 12
+
+                                    {/* Contenedor de la Imagen - Estilo Gráfico */}
+                                    <div className="mt-auto px-8 md:px-10 pb-8 md:pb-10 w-full flex justify-center items-center">
+                                        <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#6b46c1]/10 shadow-inner bg-zinc-50 flex items-center justify-center p-4">
+                                            <Image
+                                                src="/codigos/codigo-unico.png"
+                                                alt="Gráfico explicativo del Código unico por invitado"
+                                                fill
+                                                className="object-contain p-2"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +224,7 @@ export default function EducationSection() {
                             <div className="flex flex-col md:flex-row w-full bg-white rounded-[3rem] overflow-hidden shadow-2xl shadow-zinc-200/60 ring-1 ring-zinc-100">
 
                                 {/* Lado Izquierdo: Sin Control */}
-                                <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 bg-[#fffaf9] relative overflow-hidden flex flex-col justify-center">
+                                <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 bg-[#fffaf9] relative overflow-hidden flex flex-col justify-center border-b md:border-b-0 md:border-r border-zinc-100">
                                     {/* Icono de fondo marca de agua */}
                                     <ShieldAlert className="absolute -left-10 -bottom-10 w-64 h-64 text-[#cf655b] opacity-[0.03] pointer-events-none" />
 
@@ -219,7 +239,7 @@ export default function EducationSection() {
                                 </div>
 
                                 {/* Lado Derecho: Con Evento Clic */}
-                                <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 bg-[#f4fbf6] relative overflow-hidden flex flex-col justify-center border-t md:border-t-0 md:border-l border-zinc-200/50">
+                                <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 bg-[#f4fbf6] relative overflow-hidden flex flex-col justify-center">
                                     {/* Icono de fondo marca de agua */}
                                     <ShieldCheck className="absolute -right-10 -bottom-10 w-64 h-64 text-[#2d5a27] opacity-[0.03] pointer-events-none" />
 

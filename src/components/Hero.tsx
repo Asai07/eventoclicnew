@@ -19,7 +19,7 @@ export default function Hero() {
                     <span className="text-[#cf655b]">controla</span> quién entra a tu evento
                 </h1>
 
-                <p className="text-lg text-zinc-600 leading-relaxed max-w-md">
+                <p className="font-montserrat text-lg text-zinc-600 leading-relaxed max-w-md">
                     Confirmaciones, códigos únicos y acceso con QR. Todo en un solo panel. Sin revisar Whatsapp a media noche.
                 </p>
 

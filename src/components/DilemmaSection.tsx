@@ -1,8 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import { Utensils, TrendingUp, LayoutGrid, UserX, ArrowRight, Play } from 'lucide-react';
-import Image from 'next/image';
+import { Utensils, TrendingUp, LayoutGrid, UserX, ArrowRight } from 'lucide-react'; // Quitamos Play de las importaciones
 
 export default function DilemmaSection() {
     // Variantes para animaciones en cascada
@@ -49,7 +48,7 @@ export default function DilemmaSection() {
     return (
         <section className="w-full relative py-24 overflow-hidden bg-white">
 
-            {/* === Blobs de fondo de la sección entera === */}
+            {/* === Blobs de fondo === */}
             <div className="absolute -left-[10%] top-[10%] w-[40%] min-w-[300px] aspect-square bg-[#d05c53] rounded-full blur-[120px] opacity-[0.15] pointer-events-none" />
             <div className="absolute right-[5%] top-[40%] w-[35%] min-w-[250px] aspect-square bg-[#faa671] rounded-full blur-[110px] opacity-[0.15] pointer-events-none" />
             <div className="absolute left-[20%] bottom-[5%] w-[40%] min-w-[300px] aspect-square bg-[#f07343] rounded-full blur-[120px] opacity-[0.12] pointer-events-none" />
@@ -87,10 +86,9 @@ export default function DilemmaSection() {
                         Cuando las confirmaciones llegan tarde — o no llegan — todo tu evento se vuelve incierto.
                     </p>
 
-                    {/* El contenedor ahora usa items-stretch para igualar alturas */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full items-stretch">
 
-                        {/* Contenedor del Video - Al usar h-full, se estirará a la misma altura que las tarjetas */}
+                        {/* --- CONTENEDOR DEL VIDEO ACTUALIZADO --- */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -98,28 +96,20 @@ export default function DilemmaSection() {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             className="relative w-full h-full min-h-[400px] lg:min-h-0 rounded-[2.5rem] overflow-hidden group shadow-xl shadow-zinc-900/10 cursor-pointer"
                         >
-                            {/* Overlay oscuro para resaltar el botón */}
-                            <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 z-10 transition-colors duration-500" />
+                            {/* Eliminada la capa de oscurecimiento interactiva z-10 */}
 
-                            {/* Reemplaza con tu imagen o componente de video */}
-                            <Image
-                                src="/images/video-thumbnail.jpg" // CAMBIAR RUTA
-                                alt="Testimonio de cliente"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105 z-0"
+                            {/* Implementación con controles nativos y sin superposiciones pesadas */}
+                            <video
+                                src="/videos/presentacion-eventoclic.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                controls // <-- NUEVO: Activa los controles nativos
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"
                             />
 
-                            {/* Botón de Play Animado */}
-                            <div className="absolute inset-0 flex items-center justify-center z-20">
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="w-24 h-24 rounded-full border-4 border-black/80 flex items-center justify-center backdrop-blur-sm transition-all shadow-2xl"
-                                >
-                                    <div className="w-full h-full absolute rounded-full border-4 border-black/30 animate-ping opacity-50" />
-                                    <Play fill="black" className="w-10 h-10 text-black ml-2" />
-                                </motion.div>
-                            </div>
+                            {/* Eliminado el div del botón de Play Animado Flotante z-20 */}
                         </motion.div>
 
                         {/* Grid de 4 Tarjetas de Datos */}
@@ -128,7 +118,6 @@ export default function DilemmaSection() {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
-                            // Usamos h-full aquí para que marque la pauta de altura de la fila
                             className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full"
                         >
                             {stats.map((item, index) => {
@@ -138,7 +127,6 @@ export default function DilemmaSection() {
                                         key={index}
                                         variants={itemVariants}
                                         whileHover={{ y: -5, scale: 1.02 }}
-                                        // Le agregamos h-full para que las tarjetas ocupen todo el espacio de su celda
                                         className="bg-[#f7ece5] rounded-[2rem] p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:shadow-[#cf655b]/10 h-full cursor-default"
                                     >
                                         <div>
@@ -181,7 +169,6 @@ export default function DilemmaSection() {
                         ¿Cuántas personas asistirán realmente a tu evento?
                     </h3>
 
-                    {/* Añadido cursor-pointer explícitamente */}
                     <button className="relative z-10 flex-shrink-0 flex items-center gap-3 bg-[#cf655b] hover:bg-[#b5584f] text-white px-8 py-5 rounded-full font-montserrat font-semibold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#cf655b]/30 cursor-pointer">
                         Organizar a mis invitados
                         <ArrowRight className="w-4 h-4" strokeWidth={2.5} />

@@ -119,7 +119,7 @@ export default function ControlCenterSection() {
                     {/* Tarjeta 4 */}
                     <motion.div variants={cardVariants} className="group bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-zinc-200/50 hover:shadow-2xl hover:shadow-[#cf655b]/10 transition-all duration-300 flex flex-col cursor-pointer">
                         <div className="w-full rounded-2xl overflow-hidden mb-8 flex justify-center items-center">
-                            <Image src="/3.webp" alt="Recordatorios" width={800} height={500} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                            <Image src="/recordatorios.webp" alt="Recordatorios" width={800} height={500} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="font-veryvogue italic text-3xl text-zinc-800 mb-3">Recordatorios</h3>
                         <p className="font-montserrat text-zinc-500 text-sm leading-relaxed">Envía seguimiento a quienes no han respondido.</p>
