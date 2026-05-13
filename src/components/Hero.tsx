@@ -36,16 +36,18 @@ const SLIDES = [
         fgImageHeight: "h-[78%]",
         allWidgetsAbove: false,
     },
+
     {
-        id: 3, // Mateo
+        id: 3, // Mateo Bautizo
         bg: '/hero/8.png',
-        fg: '/hero/9.png',
-        stats: { total: 120, mesa: 105, sinMesa: 15, adultos: 90, ninos: 40, trad: 90, veg: 0, inf: 40 },
-        guest: { name: 'Serrano Alonso', confBy: 'Norma', pax: 3, time: '20:50' },
-        topCardsYOffset: "top-[18%]",
-        fgAlignment: "justify-end items-end pb-4 md:pb-6",
-        fgObjectAlignment: "object-right object-bottom -translate-x-2 -translate-y-2.5",
-        fgImageHeight: "h-[70%]",
+        fg: '/hero/10.png',
+        title: 'MI BAUTISMO MATEO',
+        stats: { total: 180, mesa: 180, sinMesa: 0, adultos: 160, ninos: 20, trad: 160, veg: 0, inf: 20 },
+        guest: { name: 'Hinojosa Paz', confBy: 'Erick', pax: 5, time: '10:21' },
+        fgAlignment: "justify-end items-end",
+        // CORRECCIÓN: object-right lo pega, y overflow-hidden de la capa superior se encargará de recortarlo al ras.
+        fgObjectAlignment: "object-right object-bottom -translate-x-4.5 -translate-y-5",
+        fgImageHeight: "h-[72%]",
         allWidgetsAbove: true,
     }
 ];

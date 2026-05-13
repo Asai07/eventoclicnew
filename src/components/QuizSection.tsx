@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
 import {
@@ -9,7 +9,6 @@ import {
 } from 'lucide-react';
 
 export default function QuizSection() {
-    // Definimos la estructura de datos del Quiz y los Paquetes
     const quizData = [
         {
             id: 'esencial',
@@ -22,7 +21,7 @@ export default function QuizSection() {
                 price: "$699 MXN",
                 oldPrice: "$999 MXN",
                 intro: "Ideal si necesitas invitar rápido y sin complicaciones",
-                image: "/images/pack-esencial.jpg", // Reemplazar con ruta real
+                gallery: Array.from({ length: 8 }, (_, i) => `/escencial/${i + 1}.png`),
                 includes: [
                     "Invitación digital de catálogo personalizada",
                     "Entrega en 48 horas hábiles",
@@ -49,7 +48,7 @@ export default function QuizSection() {
                 tag: "",
                 price: "$899 MXN",
                 intro: "Ideal si ya tienes invitación y quieres cero colados",
-                image: "/images/pack-control.jpg",
+                gallery: Array.from({ length: 4 }, (_, i) => `/controlqr/${i + 1}.png`),
                 includes: [
                     "Formulario digital para confirmar asistencia",
                     "Códigos únicos ilimitados por familia o invitado",
@@ -79,7 +78,7 @@ export default function QuizSection() {
                 tag: "★ MÁS ELEGIDO",
                 price: "$1,499 MXN",
                 intro: "Ideal si quieres invitación bonita + confirmaciones sin caos",
-                image: "/images/pack-premium.jpg",
+                gallery: Array.from({ length: 10 }, (_, i) => `/premium/${i + 1}.png`),
                 includes: [
                     "Invitación digital de catálogo personalizada con tus colores y fotos",
                     "Hasta 9 fotografías",
@@ -110,7 +109,7 @@ export default function QuizSection() {
                 tag: "★ EXPERIENCIA COMPLETA",
                 price: "$2,999 MXN",
                 intro: "Ideal si quieres control total + invitación diseñada solo para ti",
-                image: "/images/pack-elite.jpg",
+                gallery: Array.from({ length: 11 }, (_, i) => `/elite/${i + 1}.png`),
                 includes: [
                     "Invitación digital diseñada exclusivamente para tu evento",
                     "Hasta 12 fotografías",
@@ -133,8 +132,21 @@ export default function QuizSection() {
         }
     ];
 
-    // Estado para controlar si estamos en la vista de Grid o en la vista de Resultado
+    // Estados
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
+    const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+
+    // --- EFECTO AUTOPLAY DE LA GALERÍA ---
+    useEffect(() => {
+        if (selectedOption === null) return;
+        const galleryLength = quizData[selectedOption].result.gallery.length;
+
+        const timer = setInterval(() => {
+            setActiveImageIndex((prevIndex) => (prevIndex + 1) % galleryLength);
+        }, 2500);
+
+        return () => clearInterval(timer);
+    }, [selectedOption, quizData]);
 
     // Animaciones
     const fadeVariants: Variants = {
@@ -148,20 +160,21 @@ export default function QuizSection() {
         visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
     };
 
+    const handleSelectPackage = (index: number) => {
+        setSelectedOption(index);
+        setActiveImageIndex(0);
+    };
+
     return (
         <section className="relative w-full py-24 bg-[#fdfaf8] overflow-hidden min-h-[800px] flex items-center">
 
-            {/* === Blobs de fondo (Cálidos, opacidad 60%) === */}
+            {/* === Blobs de fondo === */}
             <div className="absolute -left-[10%] top-[10%] w-[40%] min-w-[300px] aspect-square bg-[#d05c53] rounded-full blur-[130px] opacity-[0.15] pointer-events-none" />
             <div className="absolute right-[5%] top-[50%] w-[35%] min-w-[300px] aspect-square bg-[#faa671] rounded-full blur-[120px] opacity-[0.20] pointer-events-none" />
 
             <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
 
                 <AnimatePresence mode="wait">
-
-                    {/* ========================================= */}
-                    {/* VISTA 1: QUIZ (GRID DE OPCIONES)          */}
-                    {/* ========================================= */}
                     {selectedOption === null && (
                         <motion.div
                             key="quiz-grid"
@@ -171,7 +184,6 @@ export default function QuizSection() {
                             exit="exit"
                             className="flex flex-col items-center"
                         >
-                            {/* Encabezado */}
                             <div className="flex items-center gap-4 mb-6">
                                 <span className="w-8 h-[1px] bg-[#cf655b]/40"></span>
                                 <span className="font-montserrat text-[#cf655b] font-semibold text-xs tracking-[0.2em] uppercase">
@@ -184,7 +196,6 @@ export default function QuizSection() {
                                 ¿Qué es lo más <span className="italic text-[#cf655b]">importante</span> para ti?
                             </h2>
 
-                            {/* Cuadrícula 2x2 */}
                             <motion.div
                                 variants={staggerContainer}
                                 initial="hidden"
@@ -197,7 +208,7 @@ export default function QuizSection() {
                                         <motion.div
                                             key={item.id}
                                             variants={fadeVariants}
-                                            onClick={() => setSelectedOption(index)}
+                                            onClick={() => handleSelectPackage(index)}
                                             className="group bg-white rounded-[2rem] p-8 md:p-10 shadow-lg shadow-zinc-200/40 hover:shadow-2xl hover:shadow-[#cf655b]/15 transition-all duration-300 cursor-pointer border border-transparent hover:border-[#cf655b]/10 flex flex-col h-full"
                                         >
                                             <div className="w-12 h-12 rounded-full border border-[#cf655b]/20 flex items-center justify-center mb-6 text-[#cf655b] group-hover:bg-[#fdf0ea] transition-colors duration-300">
@@ -225,9 +236,6 @@ export default function QuizSection() {
                         </motion.div>
                     )}
 
-                    {/* ========================================= */}
-                    {/* VISTA 2: RESULTADO DEL QUIZ               */}
-                    {/* ========================================= */}
                     {selectedOption !== null && (
                         <motion.div
                             key="quiz-result"
@@ -237,7 +245,6 @@ export default function QuizSection() {
                             exit="exit"
                             className="w-full flex flex-col"
                         >
-                            {/* Botón Volver */}
                             <button
                                 onClick={() => setSelectedOption(null)}
                                 className="self-start flex items-center gap-2 mb-8 font-montserrat text-sm font-medium text-zinc-500 hover:text-[#cf655b] transition-colors cursor-pointer group"
@@ -248,22 +255,59 @@ export default function QuizSection() {
 
                             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start bg-white rounded-[2.5rem] p-6 lg:p-10 shadow-xl shadow-zinc-200/50">
 
-                                {/* Lado Izquierdo: Imagen */}
-                                <div className="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden bg-zinc-100">
-                                    <Image
-                                        src={quizData[selectedOption].result.image}
-                                        alt={quizData[selectedOption].result.name}
-                                        fill
-                                        className="object-cover object-center"
-                                    />
+                                {/* --- LADO IZQUIERDO: GALERÍA DE IMÁGENES --- */}
+                                <div className="w-full flex flex-col gap-4">
+                                    <div className="relative w-full aspect-[4/5] lg:aspect-[4/5] rounded-[2rem] overflow-hidden bg-zinc-100 shadow-inner">
+                                        <AnimatePresence mode="wait">
+                                            <motion.div
+                                                key={activeImageIndex}
+                                                initial={{ opacity: 0, scale: 1.05 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                                className="absolute inset-0"
+                                            >
+                                                <Image
+                                                    src={quizData[selectedOption].result.gallery[activeImageIndex]}
+                                                    alt={`${quizData[selectedOption].result.name} - Vista ${activeImageIndex + 1}`}
+                                                    fill
+                                                    className="object-cover object-center"
+                                                    priority
+                                                />
+                                            </motion.div>
+                                        </AnimatePresence>
+                                    </div>
+
+                                    {/* Carrusel Horizontal de Miniaturas */}
+                                    {/* CAMBIO AQUÍ: Se reemplazó "scrollbar-hide" por "custom-scrollbar-x" */}
+                                    <div className="flex gap-3 overflow-x-auto py-4 px-2 custom-scrollbar-x pb-4">
+                                        {quizData[selectedOption].result.gallery.map((imgSrc, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={() => setActiveImageIndex(idx)}
+                                                className={`relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-xl overflow-hidden transition-all duration-300 border-2 cursor-pointer
+                                                    ${activeImageIndex === idx
+                                                        ? 'border-[#cf655b] shadow-[0_8px_15px_-3px_rgba(207,101,91,0.4)] scale-110 opacity-100'
+                                                        : 'border-transparent opacity-50 hover:opacity-100'
+                                                    }`}
+                                            >
+                                                <Image
+                                                    src={imgSrc}
+                                                    alt={`Miniatura ${idx + 1}`}
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
 
-                                {/* Lado Derecho: Detalles del Paquete */}
+                                {/* --- LADO DERECHO: DETALLES DEL PAQUETE --- */}
+                                {/* CAMBIO AQUÍ: Sigue conservando su clase custom-scrollbar para el scroll vertical */}
                                 <div
                                     data-lenis-prevent="true"
                                     className="flex flex-col h-full py-4 lg:py-6 pr-2 lg:pr-6 max-h-[80vh] overflow-y-auto custom-scrollbar"
                                 >
-                                    {/* Etiqueta / Tag (Ej. ★ MÁS ELEGIDO) */}
                                     {quizData[selectedOption].result.tag && (
                                         <span className="self-start inline-block px-4 py-1.5 rounded-full bg-[#fdf0ea] text-[#cf655b] font-montserrat font-bold text-[10px] tracking-widest uppercase mb-4">
                                             {quizData[selectedOption].result.tag}
@@ -288,7 +332,6 @@ export default function QuizSection() {
                                         )}
                                     </div>
 
-                                    {/* Lo que incluye (Forest Green checkmarks) */}
                                     <div className="mb-8">
                                         <h4 className="font-montserrat font-bold text-xs tracking-widest uppercase text-zinc-800 mb-4">
                                             Incluye:
@@ -296,7 +339,6 @@ export default function QuizSection() {
                                         <ul className="space-y-3">
                                             {quizData[selectedOption].result.includes.map((item, idx) => (
                                                 <li key={idx} className="flex items-start gap-3">
-                                                    {/* Usamos tu color forest green para lujo y distinción */}
                                                     <Check className="w-5 h-5 text-[#2d5a27] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                                                     <span className="font-montserrat text-sm text-zinc-600 leading-relaxed">
                                                         {item}
@@ -306,7 +348,6 @@ export default function QuizSection() {
                                         </ul>
                                     </div>
 
-                                    {/* Lo que NO incluye */}
                                     {quizData[selectedOption].result.excludes.length > 0 && (
                                         <div className="mb-10">
                                             <h4 className="font-montserrat font-bold text-xs tracking-widest uppercase text-zinc-400 mb-4">
@@ -325,7 +366,6 @@ export default function QuizSection() {
                                         </div>
                                     )}
 
-                                    {/* CTA del paquete */}
                                     <button className="mt-auto self-start bg-[#cf655b] hover:bg-[#b5584f] text-white px-8 py-4 rounded-full font-montserrat font-semibold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#cf655b]/30 cursor-pointer">
                                         Seleccionar este paquete
                                     </button>

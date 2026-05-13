@@ -43,6 +43,53 @@ html.lenis body {
   pointer-events: none;
 }
 
+/* ==========================================================
+   CUSTOM SCROLLBARS (Para forzar visibilidad en MacOS/iOS)
+   ========================================================== */
+
+/* 1. Scrollbar Vertical (Para los detalles del paquete) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  /* Muy delgada y elegante */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(207, 101, 91, 0.05);
+  /* Fondo casi invisible */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(207, 101, 91, 0.3);
+  /* Terracota semitransparente */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(207, 101, 91, 0.6);
+  /* Más oscuro al pasar el mouse */
+}
+
+/* 2. Scrollbar Horizontal (Para las miniaturas de imágenes) */
+.custom-scrollbar-x::-webkit-scrollbar {
+  height: 4px;
+  /* Aún más delgada para no estorbar visualmente */
+}
+
+.custom-scrollbar-x::-webkit-scrollbar-track {
+  background: rgba(207, 101, 91, 0.05);
+  border-radius: 10px;
+}
+
+.custom-scrollbar-x::-webkit-scrollbar-thumb {
+  background: rgba(207, 101, 91, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar-x::-webkit-scrollbar-thumb:hover {
+  background: rgba(207, 101, 91, 0.6);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
