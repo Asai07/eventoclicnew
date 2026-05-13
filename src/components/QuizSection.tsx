@@ -143,7 +143,7 @@ export default function QuizSection() {
 
         const timer = setInterval(() => {
             setActiveImageIndex((prevIndex) => (prevIndex + 1) % galleryLength);
-        }, 2500);
+        }, 5000);
 
         return () => clearInterval(timer);
     }, [selectedOption, quizData]);
