@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import { Utensils, TrendingUp, LayoutGrid, UserX, ArrowRight } from 'lucide-react'; // Quitamos Play de las importaciones
+import { Utensils, TrendingUp, LayoutGrid, UserX, ArrowRight } from 'lucide-react';
 
 export default function DilemmaSection() {
     // Variantes para animaciones en cascada
@@ -86,33 +86,33 @@ export default function DilemmaSection() {
                         Cuando las confirmaciones llegan tarde — o no llegan — todo tu evento se vuelve incierto.
                     </p>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full items-stretch">
+                    {/* ¡CORRECCIÓN CLAVE AQUÍ! Redefinimos el Grid para pantallas LG */}
+                    {/* Cambiamos 'lg:grid-cols-2' por 'lg:grid-cols-[2fr_3fr]'.
+                        Esto divide el espacio en 5 partes: el video toma 2/5 (40%) y las tarjetas toman 3/5 (60%). */}
+                    <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 w-full items-stretch">
 
-                        {/* --- CONTENEDOR DEL VIDEO ACTUALIZADO --- */}
+                        {/* --- CONTENEDOR DEL VIDEO ACTUALIZADO (Columna Estrecha) --- */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="relative w-full h-full min-h-[400px] lg:min-h-0 rounded-[2.5rem] overflow-hidden group shadow-xl shadow-zinc-900/10 cursor-pointer"
+                            className="relative w-full rounded-[2.5rem] overflow-hidden group shadow-xl shadow-zinc-900/10 cursor-pointer aspect-[9/16]"
                         >
-                            {/* Eliminada la capa de oscurecimiento interactiva z-10 */}
-
-                            {/* Implementación con controles nativos y sin superposiciones pesadas */}
                             <video
                                 src="/videos/presentacion-eventoclic.mp4"
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
-                                controls // <-- NUEVO: Activa los controles nativos
+                                controls
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"
                             />
-
-                            {/* Eliminado el div del botón de Play Animado Flotante z-20 */}
                         </motion.div>
 
-                        {/* Grid de 4 Tarjetas de Datos */}
+                        {/* Grid de 4 Tarjetas de Datos (Columna Ancha) */}
+                        {/* Esta columna ahora ocupa el 60% del ancho en LG,
+                            lo que estira las tarjetas hacia abajo para armonizar con el video alto. */}
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
