@@ -103,7 +103,7 @@ export default function QuizSection() {
             id: 'elite',
             icon: Star,
             question: "Quiero control total y algo único",
-            desc: "Mi evento es importante — quiero la experiencia completa, sin estrés.",
+            desc: "Mi evento es importante. Quiero invitación exclusiva y experiencia completa, sin estrés.",
             result: {
                 name: "Elite",
                 tag: "★ EXPERIENCIA COMPLETA",
