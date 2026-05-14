@@ -137,7 +137,7 @@ export default function DilemmaSection() {
 
                                         <div className="mt-auto pt-4">
                                             {/* CORRECCIÓN 3: Tipografía Gigante (text-6xl) para llenar el espacio visualmente */}
-                                            <span className="block font-veryvogue italic text-5xl lg:text-[4rem] leading-none text-[#cf655b] mb-3 tracking-tight drop-shadow-sm">
+                                            <span className="block font-veryvogue italic text-5xl lg:text-[4rem] leading-none text-[#cf655b] mb-3 tracking-tight">
                                                 {item.stat}
                                             </span>
                                             <span className="block font-montserrat text-[11px] font-bold text-zinc-500 uppercase tracking-widest leading-relaxed">
