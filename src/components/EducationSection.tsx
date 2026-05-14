@@ -153,12 +153,13 @@ export default function EducationSection() {
 
                                     {/* Contenedor de la Imagen - Estilo Gráfico */}
                                     <div className="mt-auto px-8 md:px-10 pb-8 md:pb-10 w-full flex justify-center items-center">
-                                        <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#cf655b]/10 shadow-inner bg-zinc-50 flex items-center justify-center p-4">
+                                        <div className="relative w-full max-w-[280px] sm:max-w-xs aspect-[4/5] flex items-center justify-center">
                                             <Image
-                                                src="/codigos/codigo-general.png"
+                                                src="/codigos/codigogeneral.webp"
                                                 alt="Gráfico explicativo del Código General"
                                                 fill
-                                                className="object-contain p-2" // contain para no cortar el gráfico
+                                                // Agregamos rounded-3xl aquí
+                                                className="object-contain drop-shadow-xl rounded-3xl"
                                             />
                                         </div>
                                     </div>
@@ -177,12 +178,13 @@ export default function EducationSection() {
 
                                     {/* Contenedor de la Imagen - Estilo Gráfico */}
                                     <div className="mt-auto px-8 md:px-10 pb-8 md:pb-10 w-full flex justify-center items-center">
-                                        <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#6b46c1]/10 shadow-inner bg-zinc-50 flex items-center justify-center p-4">
+                                        <div className="relative w-full max-w-[280px] sm:max-w-xs aspect-[4/5] flex items-center justify-center">
                                             <Image
-                                                src="/codigos/codigo-unico.png"
+                                                src="/codigos/codigounico.webp"
                                                 alt="Gráfico explicativo del Código unico por invitado"
                                                 fill
-                                                className="object-contain p-2"
+                                                // Agregamos rounded-3xl aquí también
+                                                className="object-contain drop-shadow-xl rounded-3xl"
                                             />
                                         </div>
                                     </div>

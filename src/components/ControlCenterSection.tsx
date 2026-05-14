@@ -69,7 +69,7 @@ export default function ControlCenterSection() {
                     <motion.div variants={cardVariants} className="group bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-zinc-200/50 hover:shadow-2xl hover:shadow-[#cf655b]/10 transition-all duration-300 flex flex-col cursor-pointer">
                         {/* Solución: Quitar aspect-ratio, usar w-full h-auto en Image */}
                         <div className="w-full rounded-2xl overflow-hidden mb-8 flex justify-center items-center">
-                            <Image src="/1.webp" alt="Confirmaciones" width={800} height={600} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                            <Image src="/centrocontrol/1.webp" alt="Confirmaciones" width={800} height={600} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="font-veryvogue italic text-3xl text-zinc-800 mb-3">Confirmaciones inteligentes</h3>
                         <p className="font-montserrat text-zinc-500 text-sm leading-relaxed">Tus invitados confirman en segundos y tú lo ves en tiempo real.</p>
@@ -78,7 +78,7 @@ export default function ControlCenterSection() {
                     {/* Tarjeta 2 */}
                     <motion.div variants={cardVariants} className="group bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-zinc-200/50 hover:shadow-2xl hover:shadow-[#cf655b]/10 transition-all duration-300 flex flex-col cursor-pointer">
                         <div className="w-full rounded-2xl overflow-hidden mb-8 flex justify-center items-center">
-                            <Image src="/2.webp" alt="Lista centralizada" width={800} height={600} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                            <Image src="/centrocontrol/2.webp" alt="Lista centralizada" width={800} height={600} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="font-veryvogue italic text-3xl text-zinc-800 mb-3">Lista centralizada</h3>
                         <p className="font-montserrat text-zinc-500 text-sm leading-relaxed">Familias, acompañantes, mesas y gestor de envíos en un solo centro de control.</p>
@@ -112,14 +112,14 @@ export default function ControlCenterSection() {
                         {/* Columna Derecha (Imagen) */}
                         <div className="w-full md:w-1/2 flex items-center justify-center overflow-hidden">
                             {/* Solución: object-contain para asegurar que no se corte sin importar el alto de la columna de texto */}
-                            <Image src="/5.webp" alt="Escáner QR" width={800} height={800} className="w-full h-auto max-h-[400px] object-contain transition-transform duration-700 group-hover:scale-105" />
+                            <Image src="/centrocontrol/3.webp" alt="Escáner QR" width={800} height={800} className="w-full h-auto max-h-[400px] object-contain transition-transform duration-700 group-hover:scale-105" />
                         </div>
                     </motion.div>
 
                     {/* Tarjeta 4 */}
                     <motion.div variants={cardVariants} className="group bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-zinc-200/50 hover:shadow-2xl hover:shadow-[#cf655b]/10 transition-all duration-300 flex flex-col cursor-pointer">
                         <div className="w-full rounded-2xl overflow-hidden mb-8 flex justify-center items-center">
-                            <Image src="/recordatorios.webp" alt="Recordatorios" width={800} height={500} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                            <Image src="/centrocontrol/4.webp" alt="Recordatorios" width={800} height={500} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="font-veryvogue italic text-3xl text-zinc-800 mb-3">Recordatorios</h3>
                         <p className="font-montserrat text-zinc-500 text-sm leading-relaxed">Envía seguimiento a quienes no han respondido.</p>
@@ -128,7 +128,7 @@ export default function ControlCenterSection() {
                     {/* Tarjeta 5 */}
                     <motion.div variants={cardVariants} className="group bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-zinc-200/50 hover:shadow-2xl hover:shadow-[#cf655b]/10 transition-all duration-300 flex flex-col cursor-pointer">
                         <div className="w-full rounded-2xl overflow-hidden mb-8 flex justify-center items-center">
-                            <Image src="/4.webp" alt="Logística" width={800} height={500} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                            <Image src="/centrocontrol/5.webp" alt="Logística" width={800} height={500} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                         </div>
                         <h3 className="font-veryvogue italic text-3xl text-zinc-800 mb-3">Logística bajo control</h3>
                         <p className="font-montserrat text-zinc-500 text-sm leading-relaxed">Menús, alergias, mesas y detalles clave en un solo lugar.</p>
