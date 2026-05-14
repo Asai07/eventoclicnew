@@ -256,7 +256,7 @@ export default function Hero() {
                 </h1>
 
                 <p className="font-montserrat text-lg text-zinc-600 leading-relaxed max-w-md">
-                    Confirmaciones inteligentes, códigos únicos y acceso con QR. Todo en un solo panel. Sin caos el día del evento.
+                    Confirmaciones inteligentes, códigos únicos y acceso con QR. Todo en un solo centro de control. Sin caos el día del evento.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 mt-6">
