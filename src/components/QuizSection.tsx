@@ -5,7 +5,7 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
 import {
     ArrowRight, ArrowLeft, Check, X,
-    CheckCircle2, LayoutGrid, FileText, Star
+    CheckCircle2, LayoutGrid, FileText, Star, Gem
 } from 'lucide-react';
 
 export default function QuizSection() {
@@ -70,7 +70,7 @@ export default function QuizSection() {
         },
         {
             id: 'premium',
-            icon: FileText,
+            icon: Star,
             question: "Quiero invitación + saber quién confirmó",
             desc: "No quiero estar rastreando respuestas por WhatsApp una por una.",
             result: {
@@ -101,7 +101,7 @@ export default function QuizSection() {
         },
         {
             id: 'elite',
-            icon: Star,
+            icon: Gem,
             question: "Quiero control total y algo único",
             desc: "Mi evento es importante. Quiero invitación exclusiva y experiencia completa, sin estrés.",
             result: {
