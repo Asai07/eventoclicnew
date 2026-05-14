@@ -43,7 +43,7 @@ export default function ControlCenterSection() {
                     <div className="flex items-center gap-4 mb-6">
                         <span className="w-10 h-[1px] bg-[#cf655b]/40"></span>
                         <span className="font-montserrat text-zinc-600 font-semibold text-sm tracking-wide">
-                            Sistema anticolados
+                            Sistema Anticolados
                         </span>
                         <span className="w-10 h-[1px] bg-[#cf655b]/40"></span>
                     </div>
@@ -53,8 +53,7 @@ export default function ControlCenterSection() {
                     </h2>
 
                     <p className="font-montserrat text-zinc-600 text-lg max-w-2xl">
-                        Desde la confirmación hasta el escaneo en puerta — sin hojas de Excel, sin caos, sin sorpresas el día del evento.
-                    </p>
+                        Desde la confirmación hasta el escaneo en puerta, todo queda en un solo lugar: sin mil listas desorganizadas, sin caos y sin sorpresas el día del evento.                    </p>
                 </motion.div>
 
                 {/* --- BENTO GRID DE TARJETAS --- */}
@@ -121,8 +120,8 @@ export default function ControlCenterSection() {
                         <div className="w-full rounded-2xl overflow-hidden mb-8 flex justify-center items-center">
                             <Image src="/centrocontrol/4.webp" alt="Recordatorios" width={800} height={500} className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                         </div>
-                        <h3 className="font-veryvogue italic text-3xl text-zinc-800 mb-3">Recordatorios</h3>
-                        <p className="font-montserrat text-zinc-500 text-sm leading-relaxed">Envía seguimiento a quienes no han respondido.</p>
+                        <h3 className="font-veryvogue italic text-3xl text-zinc-800 mb-3">Envío y recordatorios de invitaciones</h3>
+                        <p className="font-montserrat text-zinc-500 text-sm leading-relaxed">Envía tus invitaciones y da seguimiento a quienes aún no han respondido, todo desde tu Centro de Control.</p>
                     </motion.div>
 
                     {/* Tarjeta 5 */}
