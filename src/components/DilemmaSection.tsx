@@ -158,29 +158,40 @@ export default function DilemmaSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8, type: "spring" }}
-                    className="relative w-full rounded-[3rem] overflow-hidden bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-zinc-100 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8"
+                    className="relative w-full rounded-[3rem] overflow-hidden bg-gradient-to-br from-[#f07343] to-[#cf655b] shadow-[0_15px_40px_rgba(207,101,91,0.3)] ring-1 ring-[#cf655b]/20 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#fff5f0] via-[#ffece3] to-[#fff5f0] opacity-90 pointer-events-none" />
-                    
                     {/* Blob Superior Izquierdo Animado */}
                     <motion.div 
-                        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.6, 0.4] }}
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute -top-20 -left-10 w-[280px] h-[280px] bg-[#faa671] rounded-full blur-[70px] pointer-events-none" 
+                        className="absolute -top-20 -left-10 w-[300px] h-[300px] bg-[#faa671] rounded-full blur-[60px] pointer-events-none" 
                     />
                     
                     {/* Blob Inferior Derecho Animado */}
                     <motion.div 
-                        animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+                        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                        className="absolute -bottom-24 -right-16 w-[320px] h-[320px] bg-[#f07343] rounded-full blur-[80px] pointer-events-none" 
+                        className="absolute -bottom-24 -right-16 w-[350px] h-[350px] bg-[#ff8c42] rounded-full blur-[70px] pointer-events-none" 
                     />
 
-                    <h3 className="relative z-10 font-veryvogue not-italic font-normal text-4xl md:text-5xl text-zinc-900 leading-tight max-w-xl text-center md:text-left text-balance">
-                        ¿Cuántas personas asistirán realmente a tu evento?
+                    <h3 className="relative z-10 font-veryvogue not-italic font-normal text-4xl md:text-5xl text-white leading-[1.3] max-w-xl text-center md:text-left text-balance">
+                        <motion.span
+                            initial={{ backgroundSize: "0% 100%" }}
+                            whileInView={{ backgroundSize: "100% 100%" }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                            style={{
+                                backgroundImage: "linear-gradient(transparent 75%, rgba(255,255,255,0.3) 0)",
+                                backgroundRepeat: "no-repeat",
+                                backgroundPosition: "left bottom",
+                                display: "inline",
+                            }}
+                        >
+                            ¿Cuántas personas asistirán realmente a tu evento?
+                        </motion.span>
                     </h3>
 
-                    <button className="relative z-10 flex-shrink-0 flex items-center gap-3 bg-[#cf655b] hover:bg-[#b5584f] text-white px-8 py-5 rounded-full font-montserrat font-semibold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#cf655b]/30 cursor-pointer">
+                    <button className="relative z-10 flex-shrink-0 flex items-center gap-3 bg-white hover:bg-zinc-50 text-[#cf655b] px-8 py-5 rounded-full font-montserrat font-semibold text-sm transition-all hover:scale-105 active:scale-95 shadow-xl shadow-black/10 cursor-pointer">
                         Organizar a mis invitados
                         <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                     </button>
