@@ -14,7 +14,7 @@ export default function QuizSection() {
             id: 'esencial',
             icon: CheckCircle2,
             question: "Necesito invitar rápido y económico",
-            desc: "No me complico — quiero algo bonito que pueda compartir ya.",
+            desc: "No me complico. Quiero algo bonito que pueda compartir ya.",
             result: {
                 name: "Esencial Express",
                 tag: "",
@@ -41,8 +41,8 @@ export default function QuizSection() {
         {
             id: 'control',
             icon: LayoutGrid,
-            question: "Ya tengo invitación, quiero cero colados",
-            desc: "Mi problema es el acceso — quiero saber exactamente quién entra.",
+            question: "Ya tengo invitación física o digital, pero quiero cero colados",
+            desc: "Quiero controlar el acceso y saber exactamente quién entra a mi evento.",
             result: {
                 name: "Control QR",
                 tag: "",

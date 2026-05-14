@@ -79,7 +79,7 @@ export default function HowItWorksSection() {
                     </h2>
 
                     <p className="font-montserrat text-zinc-500 text-lg md:text-xl">
-                        No necesitas saber nada de tecnología. (ni tu, ni tus invitados) <span className="text-[#cf655b] font-medium">¡En serio!</span>
+                        No necesitas saber nada de tecnología. Ni tú, ni tus invitados.<span className="text-[#cf655b] font-medium">¡En serio!</span>
                     </p>
                 </motion.div>
 
