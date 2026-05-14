@@ -95,15 +95,32 @@ export default function Features() {
                 </motion.div>
 
                 {/* Texto inferior */}
-                <motion.p
+                <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className="text-center font-montserrat text-zinc-500 text-sm md:text-base font-medium tracking-wide mt-10"
+                    className="flex flex-col items-center mt-12 gap-5"
                 >
-                    Hemos sido parte de más de 1,000 Bodas · XV años · Bautizos · Graduaciones en todo México
-                </motion.p>
+                    <p className="text-center font-montserrat text-zinc-600 text-base md:text-lg font-medium tracking-wide">
+                        Hemos sido parte de más de <strong className="text-[#cf655b] font-bold">1,000 eventos</strong>
+                    </p>
+                    
+                    <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+                        {['Bodas', 'XV Años', 'Bautizos', 'Otros eventos'].map((tipo, idx) => (
+                            <span 
+                                key={idx} 
+                                className="px-5 py-2 bg-white border border-zinc-200 text-zinc-600 rounded-full text-xs md:text-sm font-medium shadow-sm hover:shadow-md hover:border-[#cf655b] hover:text-[#cf655b] transition-all cursor-default"
+                            >
+                                {tipo}
+                            </span>
+                        ))}
+                    </div>
+
+                    <p className="text-center font-montserrat text-zinc-500 text-sm md:text-base italic mt-1">
+                        En todo México.
+                    </p>
+                </motion.div>
 
             </div>
         </section>
