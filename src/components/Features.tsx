@@ -106,10 +106,10 @@ export default function Features() {
                     <p className="text-center font-montserrat text-zinc-600 text-base md:text-lg font-normal not-italic tracking-wide">
                         Hemos sido parte de más de <span className="text-[#cf655b] font-bold">1,000 eventos</span>
                     </p>
-                    
+
                     <div className="flex flex-wrap justify-center gap-3 md:gap-4 my-1">
                         {['Bodas', 'XV Años', 'Bautizos', 'Otros eventos'].map((tipo, idx) => (
-                            <motion.span 
+                            <motion.span
                                 key={idx}
                                 animate={{ scale: [1, 1.04, 1] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
@@ -120,8 +120,8 @@ export default function Features() {
                         ))}
                     </div>
 
-                    <p className="text-center font-montserrat text-zinc-600 text-sm md:text-base italic font-bold mt-1 tracking-wide">
-                        En todo <span className="text-[#cf655b]">México.</span>
+                    <p className="text-center font-montserrat text-zinc-600 text-sm md:text-base font-bold mt-1 tracking-wide">
+                        En todo <span className="text-[#cf655b]">México</span>
                     </p>
                 </motion.div>
 
