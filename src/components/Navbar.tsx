@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // Agregamos la importación de Image
 
 export default function Navbar() {
     const navLinks = [
@@ -12,11 +13,16 @@ export default function Navbar() {
         // Quitamos el borde y el justify-between, añadimos relative para el centrado absoluto de los links
         <nav className="w-full py-6 flex items-center relative">
 
-            {/* Logo alineado a la izquierda */}
-            <Link href="/" className="flex items-center gap-1 z-10">
-                <span className="text-2xl font-bold tracking-tight text-zinc-900">
-                    evento<span className="font-light italic font-veryvogue">clic.com</span>
-                </span>
+            {/* Logo en imagen alineado a la izquierda */}
+            <Link href="/" className="flex items-center z-10 hover:opacity-80 transition-opacity">
+                <Image
+                    src="/logoevento.png"
+                    alt="Logo Evento Clic"
+                    width={180}
+                    height={45}
+                    priority // priority le dice a Next.js que cargue esta imagen lo más rápido posible
+                    className="w-auto h-8 md:h-10 object-contain" // Altura responsiva (más pequeño en móvil, más grande en PC)
+                />
             </Link>
 
             {/* Links centrados de forma absoluta en la pantalla */}
