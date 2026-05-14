@@ -53,7 +53,7 @@ export default function ControlCenterSection() {
                     </h2>
 
                     <p className="font-montserrat text-zinc-600 text-lg max-w-2xl">
-                        Desde la confirmación hasta el escaneo en puerta, todo queda en un solo lugar: sin mil listas desorganizadas, sin caos y sin sorpresas el día del evento.                    </p>
+                        Desde la confirmación hasta el escaneo en puerta, todo queda en un solo lugar. <br /> <br />Sin mil listas desorganizadas, sin caos y sin sorpresas el día del evento.                    </p>
                 </motion.div>
 
                 {/* --- BENTO GRID DE TARJETAS --- */}
