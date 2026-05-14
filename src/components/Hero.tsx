@@ -250,7 +250,7 @@ export default function Hero() {
 
             {/* --- COLUMNA IZQUIERDA (CONTENIDO) --- */}
             <div className="flex flex-col gap-6 max-w-xl z-20 relative pl-4 md:pl-8 lg:pl-0">
-                <h1 className="text-5xl lg:text-7xl leading-[1.05] text-zinc-900 font-veryvogue italic font-normal drop-shadow-sm">
+                <h1 className="text-5xl lg:text-7xl leading-[1.05] text-zinc-900 font-veryvogue italic font-normal">
                     El sistema que organiza a tus invitados y{' '}
                     <span className="text-[#cf655b]">controla</span> quién entra a tu evento
                 </h1>
