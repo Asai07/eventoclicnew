@@ -113,7 +113,7 @@ export default function Features() {
                                 key={idx}
                                 animate={{ scale: [1, 1.04, 1] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
-                                className="px-6 py-2.5 bg-gradient-to-r from-orange-100 via-white to-rose-100 border border-rose-50 text-zinc-600 rounded-full text-xs md:text-sm font-montserrat font-medium shadow-[0_4px_15px_rgba(0,0,0,0.03)] cursor-default"
+                                className="px-6 py-2.5 bg-gradient-to-r from-orange-100 via-red-100 to-rose-100 text-zinc-600 rounded-full text-xs md:text-sm font-montserrat font-medium shadow-[0_4px_15px_rgba(0,0,0,0.03)] cursor-default"
                             >
                                 {tipo}
                             </motion.span>
