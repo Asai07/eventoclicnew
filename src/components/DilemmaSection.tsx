@@ -83,7 +83,7 @@ export default function DilemmaSection() {
                     className="flex flex-col items-center mb-20"
                 >
                     <p className="font-montserrat text-zinc-600 text-lg md:text-xl max-w-2xl text-center mb-12 text-balance">
-                        Cuando las confirmaciones llegan tarde — o no llegan — todo tu evento se vuelve incierto.
+                        Cuando las confirmaciones llegan tarde o simplemente no llegan, todo tu evento se vuelve incierto.
                     </p>
 
                     {/* CORRECCIÓN 1: Cambiamos items-stretch por items-center para no deformar las tarjetas */}
