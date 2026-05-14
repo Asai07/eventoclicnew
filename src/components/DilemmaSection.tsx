@@ -158,12 +158,25 @@ export default function DilemmaSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8, type: "spring" }}
-                    className="relative w-full rounded-[3rem] overflow-hidden bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-zinc-100 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8"
+                    className="relative w-full rounded-[3rem] overflow-hidden bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-zinc-100 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-r from-white via-[#fcf0ea] to-white opacity-80 pointer-events-none" />
-                    <div className="absolute top-0 right-[20%] w-[300px] h-[300px] bg-[#cf655b]/10 rounded-full blur-[80px] pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#fff5f0] via-[#ffece3] to-[#fff5f0] opacity-90 pointer-events-none" />
+                    
+                    {/* Blob Superior Izquierdo Animado */}
+                    <motion.div 
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.6, 0.4] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute -top-20 -left-10 w-[280px] h-[280px] bg-[#faa671] rounded-full blur-[70px] pointer-events-none" 
+                    />
+                    
+                    {/* Blob Inferior Derecho Animado */}
+                    <motion.div 
+                        animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute -bottom-24 -right-16 w-[320px] h-[320px] bg-[#f07343] rounded-full blur-[80px] pointer-events-none" 
+                    />
 
-                    <h3 className="relative z-10 font-veryvogue italic font-normal text-4xl md:text-5xl text-zinc-800 leading-tight max-w-xl text-center md:text-left text-balance">
+                    <h3 className="relative z-10 font-veryvogue not-italic font-normal text-4xl md:text-5xl text-zinc-900 leading-tight max-w-xl text-center md:text-left text-balance">
                         ¿Cuántas personas asistirán realmente a tu evento?
                     </h3>
 
