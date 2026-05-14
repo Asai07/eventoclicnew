@@ -102,23 +102,25 @@ export default function Features() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="flex flex-col items-center mt-12 gap-5"
                 >
-                    <p className="text-center font-montserrat text-zinc-600 text-base md:text-lg font-medium tracking-wide">
-                        Hemos sido parte de más de <strong className="text-[#cf655b] font-bold">1,000 eventos</strong>
+                    <p className="text-center font-montserrat text-zinc-600 text-base md:text-lg font-normal not-italic tracking-wide">
+                        Hemos sido parte de más de <span className="text-[#cf655b] font-normal">1,000 eventos</span>
                     </p>
                     
-                    <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-4 my-1">
                         {['Bodas', 'XV Años', 'Bautizos', 'Otros eventos'].map((tipo, idx) => (
-                            <span 
-                                key={idx} 
-                                className="px-5 py-2 bg-white border border-zinc-200 text-zinc-600 rounded-full text-xs md:text-sm font-medium shadow-sm hover:shadow-md hover:border-[#cf655b] hover:text-[#cf655b] transition-all cursor-default"
+                            <motion.span 
+                                key={idx}
+                                animate={{ scale: [1, 1.06, 1] }}
+                                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
+                                className="px-6 py-2.5 bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 text-white rounded-full text-xs md:text-sm font-montserrat font-bold shadow-[0_4px_15px_rgba(244,63,94,0.4)] cursor-default"
                             >
                                 {tipo}
-                            </span>
+                            </motion.span>
                         ))}
                     </div>
 
-                    <p className="text-center font-montserrat text-zinc-500 text-sm md:text-base italic mt-1">
-                        En todo México.
+                    <p className="text-center font-montserrat text-zinc-600 text-sm md:text-base italic font-bold mt-1 tracking-wide">
+                        En todo <span className="text-[#f07343]">México.</span>
                     </p>
                 </motion.div>
 
